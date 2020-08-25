@@ -1,0 +1,22 @@
+{
+  "name": "can-slim3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DerekTeed/can-slim3.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DerekTeed/can-slim3/issues"
+  },
+  "homepage": "https://github.com/DerekTeed/can-slim3#readme"
+}
