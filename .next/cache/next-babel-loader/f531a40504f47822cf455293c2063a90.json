@@ -1,0 +1,1 @@
+{"ast":null,"code":"var stocks = [AAPL, AAPL, AAPL];","map":{"version":3,"sources":["/Users/Derek/Desktop/can-slim3/models/stockArray.js"],"names":["stocks","AAPL"],"mappings":"AAAA,IAAIA,MAAM,GAAG,CAAEC,IAAF,EAAQA,IAAR,EAAcA,IAAd,CAAb","sourcesContent":["var stocks = [ AAPL, AAPL, AAPL]"]},"metadata":{},"sourceType":"script"}
