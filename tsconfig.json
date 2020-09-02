@@ -21,7 +21,7 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx", "models/report.js"
+    "**/*.tsx", "models/report.js", "components/Layout.js"
   ],
   "exclude": [
     "node_modules"
