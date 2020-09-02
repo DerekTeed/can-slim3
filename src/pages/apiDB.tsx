@@ -1,17 +1,16 @@
 import Layout from '../../components/Layout'
 import React, { Component } from 'react';
-// interface Props {
-//     stockSymbol: any,
-//     URLNameData: any,
-//     URLStockPriceData: any,
-//     URLMarketCapitalizationData: any,
-//     debtRatio: any,
-//     qtrGrowthYOYData: any,
-//     stocks:any
-//   }
 
+interface addStock {
+    
+    stock_data:any,
+    symbol: any,
+    title: any,
+    
+    value:any
+  }
 
-class apiDB extends Component {
+class apiDB extends Component<addStock> {
 
     
 
@@ -38,11 +37,13 @@ class apiDB extends Component {
             })
     }
     
-    removeStocks(id) {
+    removeStocks(id:any)  {
+        
         var that = this;
         //this is using stocks from let stocks = this.state.stocks in render()
         let stocks = that.state.stocks;
         let stock3 = stocks.find(function(stock3) {
+            
             //by matching them we match the id in which to delete on the button click
             return stock3.id === id
         });
@@ -63,11 +64,14 @@ class apiDB extends Component {
     }
 
 
-    addStock(event) {
+    addStock(event:any) {
+        
         var that = this;
         event.preventDefault();
         console.log('in method')
+       
         let stock_data = {
+            
            // id: this.refs.id.value,
             symbol: this.refs.symbol.value,
             name: this.refs.name.value,

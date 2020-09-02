@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 
-interface Props {
-    stockSymbol: any,
-    URLNameData: any,
-    URLStockPriceData: any,
-    URLMarketCapitalizationData: any,
-    debtRatio: any,
-    qtrGrowthYOYData: any,
+interface Pagin {
+    stockSymbol: string,
+    URLNameData: string,
+    URLStockPriceData: number,
+    URLMarketCapitalizationData: number,
+    debtRatio: number,
+    qtrGrowthYOYData: number,
     stocks:any
   }
 
-class Pagination extends React.Component<Props> {
+class Pagination extends React.Component<Pagin> {
     
 
     render() {
