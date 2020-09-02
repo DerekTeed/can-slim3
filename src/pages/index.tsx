@@ -11,10 +11,12 @@ const Index = (props) => (
       <p>Check current Stock Price, first test Aug 25</p>
       
       {console.log( 'hello',props.debtRatio  )}
+      <Pagination stockSymbol = {props.stockSymbol} />
       <Pagination URLNameData = { props.URLNameData} />
       <Pagination URLStockPriceData = {props.URLStockPriceData} />
       <Pagination URLMarketCapitalizationData ={props.URLMarketCapitalizationData} />
       <Pagination debtRatio = {props.debtRatio} />
+      <Pagination qtrGrowthYOYData = {props.qtrGrowthYOYData} />
     </div>
   </Layout>
 );
