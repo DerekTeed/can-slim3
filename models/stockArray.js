@@ -1,3 +1,3 @@
-var stocks = ['AAPL', 'AAPL', 'AAPL']
+var stocks = ['AAPL']
 
 module.exports = stocks;
