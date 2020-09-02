@@ -1,14 +1,22 @@
 import Layout from '../../components/Layout'
 import React, { Component } from 'react';
-
+// interface Props {
+//     stockSymbol: any,
+//     URLNameData: any,
+//     URLStockPriceData: any,
+//     URLMarketCapitalizationData: any,
+//     debtRatio: any,
+//     qtrGrowthYOYData: any,
+//     stocks:any
+//   }
 
 
 class apiDB extends Component {
 
+    
 
-
-    constructor() {
-        super();
+    constructor(props: any) {
+        super(props);
         this.state = {
             title: 'apiDb application',
             stocks: []
@@ -33,7 +41,7 @@ class apiDB extends Component {
     removeStocks(id) {
         var that = this;
         //this is using stocks from let stocks = this.state.stocks in render()
-        let stocks = this.state.stocks;
+        let stocks = that.state.stocks;
         let stock3 = stocks.find(function(stock3) {
             //by matching them we match the id in which to delete on the button click
             return stock3.id === id

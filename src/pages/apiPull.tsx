@@ -1,10 +1,22 @@
 import Fetch from 'isomorphic-unfetch';
 import Layout from '../../components/Layout';
+import React, { Component } from 'react';
 
 import Pagination from '../../components/Pagination';
 import stocks from "../../models/stockArray";
 
-const Index = (props) => (
+class Index extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+        title: 'apiDb application',
+        stocks: []
+    }
+
+}
+
+//const Index = (props) => (
   <Layout>
     <div>
       <h1>Welcome to BitzPrice</h1>
