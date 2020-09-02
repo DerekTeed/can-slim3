@@ -1,7 +1,4 @@
 src/node_modules
 node_modules
-.net/
-*.log
-
 
 .env
