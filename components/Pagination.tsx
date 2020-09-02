@@ -1,7 +1,7 @@
+import React, { Component } from 'react';
+
 class Pagination extends React.Component {
-    state = {
-        currency: 'USD'
-    }
+    
 
     render() {
 
