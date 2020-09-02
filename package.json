@@ -1,17 +1,13 @@
 {
   "name": "can-slim3",
   "version": "1.0.0",
-  "engines": {
-    "node": "12.x",
-    "npm": "6.x"
-  },
   "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "next",
     "build": "next build",
     "start": "next start -p $PORT",
-    "heroku-postbuild": "echo Skip build on Heroku"
+    "heroku-postbuild": "npm run build"
   },
   "repository": {
     "type": "git",
