@@ -14,9 +14,9 @@ class Index extends Component {
         stocks: []
     }
 
-}
+}}
 
-//const Index = (props) => (
+const Index = (props) => (
   <Layout>
     <div>
       <h1>Welcome to BitzPrice</h1>
