@@ -1,20 +1,12 @@
 import Layout from '../../components/Layout'
 import React, { Component } from 'react';
 
-interface addStock {
-    
-    stock_data:any,
-    symbol: any,
-    title: any,
-    
-    value:any
-  }
 
-class apiDB extends Component<addStock> {
+class apiDB extends Component {
 
     
-
-    constructor(props: any) {
+    //constructor(props: any) {
+    constructor() {
         super(props);
         this.state = {
             title: 'apiDb application',
@@ -36,8 +28,9 @@ class apiDB extends Component<addStock> {
                     })
             })
     }
-    
-    removeStocks(id:any)  {
+   // removeStocks(id:any)  {
+  
+    removeStocks()  {
         
         var that = this;
         //this is using stocks from let stocks = this.state.stocks in render()
@@ -63,8 +56,8 @@ class apiDB extends Component<addStock> {
             })
     }
 
-
-    addStock(event:any) {
+   // addStock(event:any) {
+    addStock() {
         
         var that = this;
         event.preventDefault();
