@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import Pagination from '../../components/Pagination';
 import stocks from "../../models/stockArray";
 
-class Index extends Component {
+class Apipull extends Component {
 
   constructor() {
     super();
@@ -16,7 +16,7 @@ class Index extends Component {
 
 }}
 
-const Index = (props) => (
+const Apipull = (props) => (
   <Layout>
     <div>
       <h1>Welcome to BitzPrice</h1>
@@ -33,7 +33,7 @@ const Index = (props) => (
   </Layout>
 );
 
-Index.getInitialProps = async function() {
+Apipull.getInitialProps = async function() {
     for (var i = 0; i < stocks.length; i++) {
   
   const URLName = await Fetch("https://eodhistoricaldata.com/api/fundamentals/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&filter=General::Name");
@@ -78,4 +78,4 @@ Index.getInitialProps = async function() {
 
 
 
-export default Index;
+export default Apipull;
