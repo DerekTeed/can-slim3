@@ -2,7 +2,8 @@ import Head from 'next/head'
 import Navbar from './Navbar'
 
 
-const Layout = (props) => (
+
+const Layout = (props:any, children:any) => (
     <div>
         <Head>
             <title>BitzPrice</title>
