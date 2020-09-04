@@ -56,7 +56,7 @@ class apiDB extends Component {
             })
     }
 
-   // addStock(event:any) {
+   
     addStock() {
         
         var that = this;
@@ -88,12 +88,9 @@ class apiDB extends Component {
         //xmlhttprequest()
         fetch(request)
             .then(function (response) {
-
                 response.json()
                     .then(function (data) {
-
                     })
-
             })
             .catch(function (err) {
                 console.log(err)

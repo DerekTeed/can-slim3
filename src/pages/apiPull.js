@@ -5,16 +5,6 @@ import React, { Component } from 'react';
 import Pagination from '../../components/Pagination';
 import stocks from "../../models/stockArray";
 
-// class Apipull extends Component {
-
-//   constructor() {
-//     super();
-//     this.state = {
-//         title: 'apiDb application',
-//         stocks: []
-//     }
-
-// }}
 
 const Apipull = (props) => (
   <Layout>
