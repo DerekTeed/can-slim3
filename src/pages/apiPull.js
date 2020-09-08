@@ -6,15 +6,16 @@ import Pagination from '../../components/Pagination';
 import stocks from "../../models/stockArray";
 
 
+
 const Apipull = (props) => (
   <Layout>
     <div>
-      <h1>Welcome to BitzPrice</h1>
+      <h1>Welcome to CANSLIM stock filter</h1>
       <p>Check current Stock Price, first test Aug 25</p>
       
       {console.log( 'hello',props.qtrGrowthYOYData  )}
       <Pagination stockSymbol = {props.stockSymbol} />
-      <Pagination URLNameData = { props.URLNameData} />
+      <Pagination URLNameData = {props.URLNameData} />
       <Pagination URLStockPriceData = {props.URLStockPriceData} />
       <Pagination URLMarketCapitalizationData ={props.URLMarketCapitalizationData} />
       <Pagination debtRatio = {props.debtRatio} />

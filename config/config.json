@@ -1,0 +1,19 @@
+{
+    "development": {
+        "user": "Derek",
+        "password": "light444",
+        "database": "stocks_CAN_db",
+        "host": "localhost",
+        "port": 5434
+    },
+    "test": {
+        "user": "Derek",
+        "password": "light444",
+        "database": "stocks_CAN_db",
+        "host": "localhost",
+        "port": 5434
+    },
+    "production": {
+        "dialect": "pg"
+    }
+}

@@ -4,17 +4,15 @@ import React, { Component } from 'react';
 
 class apiDB extends Component {
 
-    
     //constructor(props: any) {
-    constructor() {
+    constructor(props) {
         super(props);
         this.state = {
             title: 'apiDb application',
             stocks: []
         }
-
     }
-    //Make AJAX calls
+    //Specifically takes data from 5000/api/pullfromDBstocks and places it onto ApiDB
     componentDidMount() {
         let that = this;
         console.log('Component has Mounted')
@@ -29,8 +27,8 @@ class apiDB extends Component {
             })
     }
    // removeStocks(id:any)  {
-  
-    removeStocks()  {
+    //id has to be there to remove stock when click 'Remove' at return stock3.id === id
+    removeStocks(id)  {
         
         var that = this;
         //this is using stocks from let stocks = this.state.stocks in render()
@@ -55,6 +53,46 @@ class apiDB extends Component {
                     })
             })
     }
+
+    // addStock2() {
+        
+    //     var that = this;
+    //     event.preventDefault();
+    //     console.log('in method')
+       
+    //     let stock_data = {
+            
+    //        // id: this.refs.id.value,
+    //         symbol: this.refs.symbol.value,
+    //         name: this.refs.name.value,
+    //         price: this.refs.price.value,
+    //         marketcap: this.refs.marketcap.value,
+    //         debt: this.refs.debt.value,
+    //         growth: this.refs.growth.value
+    //     };
+    //     var request = new Request('http://localhost:5000/api/newStock2', {
+    //         method: 'POST',
+    //         headers: new Headers({ 'Content-Type': 'application/json' }),
+    //         body: JSON.stringify(stock_data)
+    //     });
+
+    //     let stocks = that.state.stocks;
+    //     stocks.push(stock_data)
+    //     //stocks.concat(stock_data);
+    //     that.setState({
+    //         stocks: stocks
+    //     })
+    //     //xmlhttprequest()
+    //     fetch(request)
+    //         .then(function (response) {
+    //             response.json()
+    //                 .then(function (data) {
+    //                 })
+    //         })
+    //         .catch(function (err) {
+    //             console.log(err)
+    //         })
+    // }
 
    
     addStock() {
@@ -96,6 +134,8 @@ class apiDB extends Component {
                 console.log(err)
             })
     }
+
+    
 
     render() {
         let title = this.state.title;

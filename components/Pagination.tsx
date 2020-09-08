@@ -26,7 +26,7 @@ class Pagination extends React.Component<Pagin> {
                       <span className="badge badge-primary"> {this.props.URLMarketCapitalizationData} </span>
                       <span className="badge badge-primary"> {this.props.debtRatio} </span>
                       <span className="badge badge-primary"> {this.props.qtrGrowthYOYData} </span>
-                      <strong>$</strong>
+                      
                     </li>
                 </ul>
             </div>
