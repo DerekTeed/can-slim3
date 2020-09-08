@@ -1,167 +1,167 @@
 
-import Fetch from 'isomorphic-unfetch';
-import Layout from '../../components/Layout';
-import React, { Component } from 'react';
+// import Fetch from 'isomorphic-unfetch';
+// import Layout from '../../components/Layout';
+// import React, { Component } from 'react';
 
-import stocks from "../../models/stockArray";
+// import stocks from "../../models/stockArray";
 
-class apiCreate extends Component {
+// class apiCreate extends Component {
 
-    //constructor(props: any) {
-    constructor(props) {
-        super(props);
-        this.state = {
-            title: 'apiDb application',
-            stocks: []
-        }
-    }
-    //Make AJAX calls
-    componentDidMount() {
-        let that = this;
-        console.log('Component has Mounted')
-        fetch('http://localhost:5000/api/pullfromDBstocks')
-            .then(function (response) {
-                response.json()
-                    .then(function (data) {
-                        that.setState({
-                            stocks: data
-                        })
-                    })
-            })
-    }
+//     //constructor(props: any) {
+//     constructor(props) {
+//         super(props);
+//         this.state = {
+//             title: 'apiDb application',
+//             stocks: []
+//         }
+//     }
+//     //Make AJAX calls
+//     componentDidMount() {
+//         let that = this;
+//         console.log('Component has Mounted')
+//         fetch('http://localhost:5000/api/pullfromDBstocks')
+//             .then(function (response) {
+//                 response.json()
+//                     .then(function (data) {
+//                         that.setState({
+//                             stocks: data
+//                         })
+//                     })
+//             })
+//     }
 
-    // apiCreate() {
-    //     var that = this;
-    //     event.preventDefault();
-    //     console.log('in method')
+//     // apiCreate() {
+//     //     var that = this;
+//     //     event.preventDefault();
+//     //     console.log('in method')
 
-    //     let stock_data = {
+//     //     let stock_data = {
 
-    //         // id: this.refs.id.value,
-    //         stockSymbol: stocks[i],
-    //         URLNameData: URLNameData,
-    //         URLStockPriceData: URLStockPriceData2,
-    //         URLMarketCapitalizationData: URLMarketCapitalizationData,
-    //         debtRatio: debtRatio,
-    //         qtrGrowthYOYData: qtrGrowthYOYData
-    //     };
-    //     var request = new Request('http://localhost:5000/api/apiCreate', {
-    //         method: 'POST',
-    //         headers: new Headers({ 'Content-Type': 'application/json' }),
-    //         body: JSON.stringify(stock_data)
-    //     });
+//     //         // id: this.refs.id.value,
+//     //         stockSymbol: stocks[i],
+//     //         URLNameData: URLNameData,
+//     //         URLStockPriceData: URLStockPriceData2,
+//     //         URLMarketCapitalizationData: URLMarketCapitalizationData,
+//     //         debtRatio: debtRatio,
+//     //         qtrGrowthYOYData: qtrGrowthYOYData
+//     //     };
+//     //     var request = new Request('http://localhost:5000/api/apiCreate', {
+//     //         method: 'POST',
+//     //         headers: new Headers({ 'Content-Type': 'application/json' }),
+//     //         body: JSON.stringify(stock_data)
+//     //     });
 
-    //     let stocks = that.state.stocks;
-    //     stocks.push(stock_data)
-    //     //stocks.concat(stock_data);
-    //     that.setState({
-    //         stocks: stocks
-    //     })
-    //     //xmlhttprequest()
-    //     fetch(request)
-    //         .then(function (response) {
-    //             response.json()
-    //                 .then(function (data) {
-    //                 })
-    //         })
-    //         .catch(function (err) {
-    //             console.log(err)
-    //         })
-    // }
+//     //     let stocks = that.state.stocks;
+//     //     stocks.push(stock_data)
+//     //     //stocks.concat(stock_data);
+//     //     that.setState({
+//     //         stocks: stocks
+//     //     })
+//     //     //xmlhttprequest()
+//     //     fetch(request)
+//     //         .then(function (response) {
+//     //             response.json()
+//     //                 .then(function (data) {
+//     //                 })
+//     //         })
+//     //         .catch(function (err) {
+//     //             console.log(err)
+//     //         })
+//     // }
     
-    addStocks2 = async function () {
+//     addStocks2 = async function () {
        
-        // var that = this;
-        // event.preventDefault();
-        // console.log('in method')
+//         // var that = this;
+//         // event.preventDefault();
+//         // console.log('in method')
        
-        // let stock_data = {
+//         // let stock_data = {
             
-        //    // id: this.refs.id.value,
-        //     symbol: this.refs.symbol.value,
-        //     name: this.refs.name.value,
-        //     price: this.refs.price.value,
-        //     marketcap: this.refs.marketcap.value,
-        //     debt: this.refs.debt.value,
-        //     growth: this.refs.growth.value
-        // };
-        // console.log('weeeO stock data',stock_data)
-        // var request = new Request('http://localhost:5000/api/apiStocks', {
-        //     method: 'POST',
-        //     headers: new Headers({ 'Content-Type': 'application/json' }),
-        //     body: JSON.stringify(stock_data)
-        // });
+//         //    // id: this.refs.id.value,
+//         //     symbol: this.refs.symbol.value,
+//         //     name: this.refs.name.value,
+//         //     price: this.refs.price.value,
+//         //     marketcap: this.refs.marketcap.value,
+//         //     debt: this.refs.debt.value,
+//         //     growth: this.refs.growth.value
+//         // };
+//         // console.log('weeeO stock data',stock_data)
+//         // var request = new Request('http://localhost:5000/api/apiStocks', {
+//         //     method: 'POST',
+//         //     headers: new Headers({ 'Content-Type': 'application/json' }),
+//         //     body: JSON.stringify(stock_data)
+//         // });
 
-        // let stocks = that.state.stocks;
-        // stocks.push(stock_data)
-        // //stocks.concat(stock_data);
-        // that.setState({
-        //     stocks: stocks
-        // })
-        // //xmlhttprequest()
-        // fetch(request)
-        //     .then(function (response) {
-        //         console.log('helllweo')
-        //         response.json()
-        //             .then(function (data) {
+//         // let stocks = that.state.stocks;
+//         // stocks.push(stock_data)
+//         // //stocks.concat(stock_data);
+//         // that.setState({
+//         //     stocks: stocks
+//         // })
+//         // //xmlhttprequest()
+//         // fetch(request)
+//         //     .then(function (response) {
+//         //         console.log('helllweo')
+//         //         response.json()
+//         //             .then(function (data) {
 
-        //             })
-        //     })
-        //     .catch(function (err) {
-        //         console.log(err)
-        //     })
+//         //             })
+//         //     })
+//         //     .catch(function (err) {
+//         //         console.log(err)
+//         //     })
 
-        for (var i = 0; i < stocks.length; i++) {
+//         for (var i = 0; i < stocks.length; i++) {
 
-            const URLName = await Fetch("https://eodhistoricaldata.com/api/fundamentals/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&filter=General::Name");
-            const URLNameData = await URLName.json();
-            const URLStockPrice = await Fetch("https://eodhistoricaldata.com/api/real-time/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&fmt=json&filter=close");
-            const URLStockPriceData = await URLStockPrice.json();
-            const URLStockPriceData2 = (URLStockPriceData).toFixed(2)
-            const URLMarketCapitalization = await Fetch("https://eodhistoricaldata.com/api/fundamentals/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&filter=Highlights::MarketCapitalization");
-            const URLMarketCapitalizationData = await URLMarketCapitalization.json();
-            const URLToQuarterDebt = await Fetch("https://eodhistoricaldata.com/api/fundamentals/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&filter=Highlights::MostRecentQuarter");
-            const mostRecentQuarter = await URLToQuarterDebt.json();
-            const URLToQuarterDebt2 = await Fetch("https://eodhistoricaldata.com/api/fundamentals/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&filter=Financials::Balance_Sheet::quarterly::" + mostRecentQuarter + "::longTermDebtTotal")
-            const totalDebt = await URLToQuarterDebt2.json();
-            const URLEBITDA = await Fetch("https://eodhistoricaldata.com/api/fundamentals/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&filter=Highlights::EBITDA");
-            const URLEBITDAData = await URLEBITDA.json();
+//             const URLName = await Fetch("https://eodhistoricaldata.com/api/fundamentals/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&filter=General::Name");
+//             const URLNameData = await URLName.json();
+//             const URLStockPrice = await Fetch("https://eodhistoricaldata.com/api/real-time/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&fmt=json&filter=close");
+//             const URLStockPriceData = await URLStockPrice.json();
+//             const URLStockPriceData2 = (URLStockPriceData).toFixed(2)
+//             const URLMarketCapitalization = await Fetch("https://eodhistoricaldata.com/api/fundamentals/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&filter=Highlights::MarketCapitalization");
+//             const URLMarketCapitalizationData = await URLMarketCapitalization.json();
+//             const URLToQuarterDebt = await Fetch("https://eodhistoricaldata.com/api/fundamentals/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&filter=Highlights::MostRecentQuarter");
+//             const mostRecentQuarter = await URLToQuarterDebt.json();
+//             const URLToQuarterDebt2 = await Fetch("https://eodhistoricaldata.com/api/fundamentals/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&filter=Financials::Balance_Sheet::quarterly::" + mostRecentQuarter + "::longTermDebtTotal")
+//             const totalDebt = await URLToQuarterDebt2.json();
+//             const URLEBITDA = await Fetch("https://eodhistoricaldata.com/api/fundamentals/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&filter=Highlights::EBITDA");
+//             const URLEBITDAData = await URLEBITDA.json();
 
-            const qtrGrowthYOY = await Fetch("https://eodhistoricaldata.com/api/fundamentals/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&filter=Highlights::QuarterlyRevenueGrowthYOY");
-            const qtrGrowthYOYData = await qtrGrowthYOY.json();
-            //const qtrGrowthYOYData2 = qtrGrowthYOYData.tofFixed(2)
-            const debtRatio = (totalDebt / URLEBITDAData).toFixed(2)
+//             const qtrGrowthYOY = await Fetch("https://eodhistoricaldata.com/api/fundamentals/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&filter=Highlights::QuarterlyRevenueGrowthYOY");
+//             const qtrGrowthYOYData = await qtrGrowthYOY.json();
+//             //const qtrGrowthYOYData2 = qtrGrowthYOYData.tofFixed(2)
+//             const debtRatio = (totalDebt / URLEBITDAData).toFixed(2)
 
 
-        }
+//         }
        
-        stocksDB = {
-            stockSymbol: stocks[i],
-            URLNameData: URLNameData,
-            URLStockPriceData: URLStockPriceData2,
-            URLMarketCapitalizationData: URLMarketCapitalizationData,
-            debtRatio: debtRatio,
-            qtrGrowthYOYData: qtrGrowthYOYData
+//         stocksDB = {
+//             stockSymbol: stocks[i],
+//             URLNameData: URLNameData,
+//             URLStockPriceData: URLStockPriceData2,
+//             URLMarketCapitalizationData: URLMarketCapitalizationData,
+//             debtRatio: debtRatio,
+//             qtrGrowthYOYData: qtrGrowthYOYData
 
-        };
-        return stocksDB;
+//         };
+//         return stocksDB;
         
-    }
-    render() {
-        let title = this.state.title;
-        //let stocksDB = this.state.stocks
-        return (
-            <div className="apiDB">
-                {console.log(stocksDB)}
+//     }
+//     render() {
+//         let title = this.state.title;
+//         //let stocksDB = this.state.stocks
+//         return (
+//             <div className="apiDB">
+//                 {console.log(stocksDB)}
                 
-            </div>
-        )
-    }
+//             </div>
+//         )
+//     }
 
-}
+// }
 
 
-    export default apiCreate;
+//     export default apiCreate;
 
 
 

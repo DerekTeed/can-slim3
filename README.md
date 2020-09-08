@@ -1,0 +1,3 @@
+In order to pull data from the API and place it into the database you go to routes/api-routes.js. Run 'nodemon api-routes'. Run webpage http://localhost:5002/routes/api-routes. The data will go into the database.
+
+To run the regular app that will take inputs and place them underneath the input settings you will need to run 'nodemon server.js' in server.js and run 'npm run dev' in the root directory.
