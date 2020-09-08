@@ -60,23 +60,24 @@ async function getAllStockData() {
         const qtrGrowthYOYData = await qtrGrowthYOY.json();
         //const qtrGrowthYOYData2 = qtrGrowthYOYData.tofFixed(2)
         const debtRatio = (totalDebt / URLEBITDAData).toFixed(2)
-        const week52High = await Fetch ('https://eodhistoricaldata.com/api/fundamentals/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&filter=Technicals::52WeekHigh')
+        const week52High = await Fetch ("https://eodhistoricaldata.com/api/fundamentals/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&filter=Technicals::52WeekHigh")
         const week52High2 = await week52High.json();
+
         var symbol = stocks[i]
         var name = URLNameData
         //var price = URLStockPriceData2
         var marketcap = URLMarketCapitalizationData
         var debt = debtRatio
         var growth = qtrGrowthYOYData
-        var high52Weeks = week52High
-        var values = [symbol, name, marketcap, debt, growth, high52Weeks]
+        var oneyearhigh = week52High2
+        var values = [symbol, name, marketcap, debt, growth, oneyearhigh]
         
-        console.log('here is ', name)
+        console.log('here is ', oneyearhigh)
         pool.connect((err, db, done) => {
             if (err) {
                 return response.status(400).send(err)
             } else {
-                db.query('insert into stock_list ( symbol ,name, marketcap, debt, growth, high52Weeks ) values($1,$2,$3,$4,$5,$6)', [...values], (err, table) => {
+                db.query('insert into stock_list ( symbol ,name, marketcap, debt, growth, oneyearhigh ) values($1,$2,$3,$4,$5,$6)', [...values], (err, table) => {
                     //This causes a serious stop to for loop
                     // if (err) {
                     //     return response.status(400).send(err)
