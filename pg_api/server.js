@@ -33,35 +33,35 @@ app.use(function (req, res, next) {
 });
 
 
-app.post('/apiCreate', function (request, response) {
-    //  var id = request.body.id;
-      var symbol = request.body.symbol;
-      var name = request.body.name;
-      var price = request.body.price;
-      var marketcap = request.body.marketcap;
-      var debt = request.body.debt;
-      var growth = request.body.growth;
-      var values = [ symbol, name, price, marketcap, debt, growth]
-      console.log('weoweo',symbol)
-      pool.connect((err, db, done) => {
-          if (err) {
-              return response.status(400).send(err)
-          } else {
-              db.query('insert into stock_list ( symbol ,name, price, marketcap, debt, growth ) values($1,$2,$3,$4,$5,$6)', [...values], (err, table) => {
-                  if (err) {
-                      return response.status(400).send(err)
-                  }
-                  else {
-                      //console.log(table.rows)
-                      console.log('data inserted')
-                      db.end()
-                      response.status(201).send({ message: 'Data inserted!' })
-                  }
-              })
+// app.post('/apiCreate', function (request, response) {
+//     //  var id = request.body.id;
+//       var symbol = request.body.symbol;
+//       var name = request.body.name;
+//       var price = request.body.price;
+//       var marketcap = request.body.marketcap;
+//       var debt = request.body.debt;
+//       var growth = request.body.growth;
+//       var values = [ symbol, name, price, marketcap, debt, growth]
+//       console.log('weoweo',symbol)
+//       pool.connect((err, db, done) => {
+//           if (err) {
+//               return response.status(400).send(err)
+//           } else {
+//               db.query('insert into stock_list ( symbol ,name, price, marketcap, debt, growth ) values($1,$2,$3,$4,$5,$6)', [...values], (err, table) => {
+//                   if (err) {
+//                       return response.status(400).send(err)
+//                   }
+//                   else {
+//                       //console.log(table.rows)
+//                       console.log('data inserted')
+//                       db.end()
+//                       response.status(201).send({ message: 'Data inserted!' })
+//                   }
+//               })
   
-          }
-      })
-  })
+//           }
+//       })
+//   })
 
 app.delete('/api/removeStock/:id', function(request, response) {
     var id = request.params.id;
@@ -97,7 +97,6 @@ app.get('/api/pullfromDBstocks', function (request,response) {
         }
     })
 })
-
 
 // app.post('/api/newStock', function (request, response) {
 //     //  var id = request.body.id;
