@@ -15,9 +15,9 @@ require('dotenv').config()
 
 let pool = new pg.Pool({
     port: 5434,
-    password: 'light444',
+    password: process.env.dbpassword, 
     database: 'stocks_CAN_db',
-    max: 10,
+    max: 20000,
     host: 'localhost',
     user: 'Derek'
 })
@@ -51,7 +51,7 @@ async function getAllStockData() {
         const URLMarketCapitalizationData = await URLMarketCapitalization.json();
         const URLToQuarterDebt = await Fetch("https://eodhistoricaldata.com/api/fundamentals/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&filter=Highlights::MostRecentQuarter");
         const mostRecentQuarter = await URLToQuarterDebt.json();
-        const URLToQuarterDebt2 = await Fetch("https://eodhistoricaldata.com/api/fundamentals/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&filter=Financials::Balance_Sheet::quarterly::" + mostRecentQuarter + "::longTermDebtTotal")
+        const URLToQuarterDebt2 = await Fetch("https://eodhistoricaldata.com/api/fundamentals/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&filter=Financials::Balance_Sheet::quarterly::" + mostRecentQuarter + "::longTermDebt")
         const totalDebt = await URLToQuarterDebt2.json();
         const URLEBITDA = await Fetch("https://eodhistoricaldata.com/api/fundamentals/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&filter=Highlights::EBITDA");
         const URLEBITDAData = await URLEBITDA.json();
@@ -72,23 +72,13 @@ async function getAllStockData() {
         var oneyearhigh = week52High2
         var values = [symbol, name, marketcap, debt, growth, oneyearhigh]
         
-        console.log('here is ', oneyearhigh)
+        console.log('here is ', values )
         pool.connect((err, db, done) => {
             if (err) {
                 return response.status(400).send(err)
             } else {
-                db.query('insert into stock_list ( symbol ,name, marketcap, debt, growth, oneyearhigh ) values($1,$2,$3,$4,$5,$6)', [...values], (err, table) => {
-                    //This causes a serious stop to for loop
-                    // if (err) {
-                    //     return response.status(400).send(err)
-                    // }
-                    // else {
-                    //     //console.log(table.rows)
-                    //     console.log('data inserted')
-                    //    // db.end()
-                    //     response.status(201).send({ message: 'Data inserted!' })
-                    // }
-                })
+                db.query('insert into stock_list ( symbol ,name, marketcap, debt, growth, oneyearhigh ) values($1,$2,$3,$4,$5,$6)', [...values]
+                    )
 
             }
         })

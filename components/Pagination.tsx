@@ -19,14 +19,9 @@ class Pagination extends React.Component<Pagin> {
             <div>
                 <ul className="list-group">
                     <li className="list-group-item">
-                        Apple stock price in URL is $:
-                      <span className="badge badge-primary"> {this.props.stockSymbol} </span>
-                      <span className="badge badge-primary"> {this.props.URLNameData} </span>
-                      <span className="badge badge-primary"> {this.props.URLStockPriceData} </span>
+                        The Market Capitalization of Apple stock is is $:
                       <span className="badge badge-primary"> {this.props.URLMarketCapitalizationData} </span>
-                      <span className="badge badge-primary"> {this.props.debtRatio} </span>
-                      <span className="badge badge-primary"> {this.props.qtrGrowthYOYData} </span>
-                      
+                     
                     </li>
                 </ul>
             </div>
