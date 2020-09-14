@@ -11,7 +11,7 @@ var router = express.Router();
 
 let pool = new pg.Pool({
     port: 5434,
-    password: 'light444',
+    password: process.env.dbpassword,
     database: 'stocks_CAN_db',
     max: 10,
     host: 'localhost',

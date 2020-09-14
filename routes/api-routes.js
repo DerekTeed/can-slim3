@@ -7,8 +7,8 @@ const pg = require('pg')
 const cors = require('cors')
 const morgan = require('morgan');
 const { response } = require('express');
-const PORT = 5002;
-var router = express.Router();
+const PORT = 5007;
+//var router = express.Router();
 require('dotenv').config()
 
 // const EOD_KEY='OeAFFmMliFG5orCUuwAKQ8l4WWFQ67YX'
@@ -42,10 +42,10 @@ async function getAllStockData() {
         const URLNameData = await URLName.json();
 
 
-        // const URLStockPrice = await Fetch("https://eodhistoricaldata.com/api/real-time/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&filter=close");
-        // const URLStockPriceData = await URLStockPrice.json();
-        // const URLStockPriceData2 = (URLStockPriceData).toFixed(2)
-
+        const URLStockPrice = await Fetch("https://eodhistoricaldata.com/api/eod/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&fmt=json&filter=last_close");
+        const URLStockPriceData = await URLStockPrice.json();
+        const URLStockPriceData2 = URLStockPriceData.toFixed(2)
+        
 
         const URLMarketCapitalization = await Fetch("https://eodhistoricaldata.com/api/fundamentals/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&filter=Highlights::MarketCapitalization");
         const URLMarketCapitalizationData = await URLMarketCapitalization.json();
@@ -58,26 +58,49 @@ async function getAllStockData() {
 
         const qtrGrowthYOY = await Fetch("https://eodhistoricaldata.com/api/fundamentals/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&filter=Highlights::QuarterlyRevenueGrowthYOY");
         const qtrGrowthYOYData = await qtrGrowthYOY.json();
-        //const qtrGrowthYOYData2 = qtrGrowthYOYData.tofFixed(2)
         const debtRatio = (totalDebt / URLEBITDAData).toFixed(2)
         const week52High = await Fetch ("https://eodhistoricaldata.com/api/fundamentals/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&filter=Technicals::52WeekHigh")
         const week52High2 = await week52High.json();
-
+        const DilutedEpsTTM = await Fetch("https://eodhistoricaldata.com/api/fundamentals/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&filter=Highlights::DilutedEpsTTM");
+        const DilutedEpsTTM2 = await DilutedEpsTTM.json();
+        const SharesFloat = await Fetch("https://eodhistoricaldata.com/api/fundamentals/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&filter=SharesStats::SharesFloat");
+        const SharesFloat2 = await SharesFloat.json();
+        const insider_own1 = await Fetch("https://eodhistoricaldata.com/api/fundamentals/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&filter=SharesStats::PercentInsiders");
+        const insider_own2 = await insider_own1.json();
+        const percent_institutions1 = await Fetch("https://eodhistoricaldata.com/api/fundamentals/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&filter=SharesStats::PercentInstitutions");
+        const percent_institutions2 = await percent_institutions1.json();
+        const percentfrom52weeks3 = (URLStockPriceData / week52High2 ).toFixed(2)
+        const PriceSalesTTM = await Fetch("https://eodhistoricaldata.com/api/fundamentals/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&filter=Valuation::PriceSalesTTM");
+        const PriceSalesTTM2 = await PriceSalesTTM.json();
+        const volume1 = await Fetch("https://eodhistoricaldata.com/api/eod/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&fmt=json&filter=last_volume");
+        const volume2 = await volume1.json();
+       
         var symbol = stocks[i]
         var name = URLNameData
-        //var price = URLStockPriceData2
+        var price = URLStockPriceData2
         var marketcap = URLMarketCapitalizationData
         var debt = debtRatio
+        
         var growth = qtrGrowthYOYData
         var oneyearhigh = week52High2
-        var values = [symbol, name, marketcap, debt, growth, oneyearhigh]
+        var eps = DilutedEpsTTM2
+        var float = SharesFloat2
+        var insider_own = insider_own2
+        var percent_institutions_own = percent_institutions2
+        var price_percent_from_1_yr_hi = percentfrom52weeks3
+        var price_to_revenue = PriceSalesTTM2
+        var volume = volume2
+        var lt_debt = totalDebt
+        var ebitda = URLEBITDAData
+
+        var values = [symbol, name, price, marketcap, debt, growth, oneyearhigh, eps, float, insider_own, percent_institutions_own, price_percent_from_1_yr_hi, price_to_revenue, volume, lt_debt, ebitda]
         
-        console.log('here is ', values )
+        console.log('here is ', values)
         pool.connect((err, db, done) => {
             if (err) {
                 return response.status(400).send(err)
             } else {
-                db.query('insert into stock_list ( symbol ,name, marketcap, debt, growth, oneyearhigh ) values($1,$2,$3,$4,$5,$6)', [...values]
+                db.query('insert into stock_list ( symbol ,name, price, marketcap, debt, growth, oneyearhigh, eps, float, insider_own, percent_institutions_own, price_percent_from_1_yr_hi, price_to_revenue, volume, lt_debt, ebitda) values($1,$2,$3,$4,$5,$6,$7, $8, $9, $10, $11, $12, $13, $14, $15, $16)', [...values]
                     )
 
             }

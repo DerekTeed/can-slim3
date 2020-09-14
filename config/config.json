@@ -4,7 +4,8 @@
         "password": "light444",
         "database": "stocks_CAN_db",
         "host": "localhost",
-        "port": 5434
+        "port": 5434,
+        "max_connection":200
     },
     "test": {
         "user": "Derek",
@@ -14,6 +15,7 @@
         "port": 5434
     },
     "production": {
-        "dialect": "pg"
+        "dialect": "pg",
+        "max_connection":200
     }
 }
