@@ -18,7 +18,7 @@ const Index = (props) => (
       
       
     </div>
-    {/* <Table/> */}
+    <Table/>
   </Layout>
 );
 
