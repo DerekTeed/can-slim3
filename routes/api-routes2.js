@@ -1,10 +1,10 @@
 const Fetch = require('isomorphic-unfetch');
 const stocks = require("../models/stockArray2");
-const express = require('express')
-const bodyParser = require('body-parser')
 const pg = require('pg')
+const bodyParser = require('body-parser')
 const cors = require('cors')
 const morgan = require('morgan');
+const express = require('express')
 const { response } = require('express');
 const PORT = 5003;
 //var router = express.Router();

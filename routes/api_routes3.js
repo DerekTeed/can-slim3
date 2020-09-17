@@ -13,20 +13,6 @@ const PORT = 5005;
 require('dotenv').config()
 
 
-// const cn = {
-    
-//     host: 'localhost',
-//     port: 5434,
-//     database: 'stocks_CAN_db',
-//     user: 'Derek',
-//     password: process.env.dbpassword, 
-//     // min:0,
-//     max: 19000,
-//     // evict:10000000
-// }
-// const db = pgp(cn);
-
-
 let pool = new pg.Pool({
     port: 5434,
     password: process.env.dbpassword, 
@@ -43,7 +29,6 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
-    //res.header("Access-Control-Allow-Methods", "GET", "PUT", "POST", "DELETE", "OPTIONS");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
@@ -126,7 +111,7 @@ async function getAllStockData() {
     }
 }
 
-
+//Places all stocks to this location to be picked up and placed into db
 app.get("/routes/api-routes", async function (req, res) {
     getAllStockData()
     
