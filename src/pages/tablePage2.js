@@ -28,59 +28,59 @@
 
 // export default tablePage2;
 
-import { render } from 'react-dom';
-import React, { Component } from 'react';
-import ReactFileReader from 'react-file-reader';
-import { CsvToHtmlTable } from 'react-csv-to-table';
-import dynamic from 'next/dynamic';
+// import { render } from 'react-dom';
+// import React, { Component } from 'react';
+// import ReactFileReader from 'react-file-reader';
+// import { CsvToHtmlTable } from 'react-csv-to-table';
+// import dynamic from 'next/dynamic';
 
-// const CsvToHtmlTable = dynamic(
-//     () => import('react-csv-to-table'),
-//     {
-//         ssr: false
+// // const CsvToHtmlTable = dynamic(
+// //     () => import('react-csv-to-table'),
+// //     {
+// //         ssr: false
+// //     }
+// // )
+
+// class tablePage2 extends Component {
+
+//  constructor(props){
+//     //Need this to load or it cannot gather csv file or windows is not defined
+//     if (typeof window === 'undefined') {
+//         global.window = {} 
 //     }
-// )
-
-class tablePage2 extends Component {
-
- constructor(props){
-    //Need this to load or it cannot gather csv file or windows is not defined
-    if (typeof window === 'undefined') {
-        global.window = {} 
-    }
-  super(props);
-  this.state = {
-    csvData: ''
-  };
+//   super(props);
+//   this.state = {
+//     csvData: ''
+//   };
   
-}
+// }
 
-handleFiles = files => {
-    let reader = new FileReader();
-    reader.onload = () => {
-      // Use reader.result
-      this.setState({
-        csvData: reader.result
-      })
-    }
-    reader.readAsText(files[0]);
-  }
+// handleFiles = files => {
+//     let reader = new FileReader();
+//     reader.onload = () => {
+//       // Use reader.result
+//       this.setState({
+//         csvData: reader.result
+//       })
+//     }
+//     reader.readAsText(files[0]);
+//   }
 
-render() {
-return (
-    <div>
-         <ReactFileReader handleFiles={this.handleFiles} fileTypes={'.csv'}>
-                 <button className='btn'>Upload</button>
-          </ReactFileReader>
-          <CsvToHtmlTable
-               data={this.state.csvData || '../data/mc_growth_price_insider_inst1'}
-               csvDelimiter=","
-               tableClassName="table table-striped table-hover"
-           />
-   </div>
+// render() {
+// return (
+//     <div>
+//          <ReactFileReader handleFiles={this.handleFiles} fileTypes={'.csv'}>
+//                  <button className='btn'>Upload</button>
+//           </ReactFileReader>
+//           <CsvToHtmlTable
+//                data={this.state.csvData || '../data/mc_growth_price_insider_inst1'}
+//                csvDelimiter=","
+//                tableClassName="table table-striped table-hover"
+//            />
+//    </div>
 
-    );
-  }
-}
+//     );
+//   }
+// }
 
-export default tablePage2;
+// export default tablePage2;
