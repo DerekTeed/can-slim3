@@ -9,7 +9,7 @@ const Index = (props) => (
   <Layout>
     
     <div>
-    <h4>This CAN-SLIM Investing Filter attempts to provide you will prefiltered stocks that meet most CAN-SLIM criteria</h4>
+    <h4>This CAN-SLIM Investing Filter attempts to provide you with prefiltered stocks that meet most CAN-SLIM criteria</h4>
       <li>Stocks with 20%+ year over year revenue growth</li>
       <li>Market Capitalization less than $300 million</li>
       <li>Daily Volume greater than 10,000</li>
