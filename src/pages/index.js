@@ -3,16 +3,19 @@ import Layout from '../../components/Layout';
 import Table from '../../components/table.js';
 import React, { useState, useEffect } from "react";
 import Fable from '../../components/Fable.js';
-import Pagination from '../../components/Pagination';
-import stocks from "../../models/stockArray";
+
 //props in react would be terrible for making a table or listing stock info!!!
 const Index = (props) => (
   <Layout>
     
     <div>
-    <h3>This is going to be an Investing Strategy Website based on the methodology of CAN SLIM Investing</h3>
-      <p>The website is just starting to be built. Currently pulling the data from an API and organizing it within a database. </p>
-      const 
+    <h4>This CAN-SLIM Investing Filter attempts to provide you will prefiltered stocks that meet most CAN-SLIM criteria</h4>
+      <li>Stocks with 20%+ year over year revenue growth</li>
+      <li>Market Capitalization less than $300 million</li>
+      <li>Daily Volume greater than 10,000</li>
+      <li>Price above $.03</li>
+      <li>Inside Ownership Greater than 5%</li>
+      <li>Institutional Ownership less than 50%</li>
       
       
     </div>
