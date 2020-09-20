@@ -1,4 +1,3 @@
-symbol,marketcap,debt_ratio,growth,id,oneyearhigh,price,eps,float,insider_own,percent_institutions_own,price_percent_from_1_yr_hi,price_to_revenue,volume,lt_debt,ebitda
 ABUS,205509616,NaN,1.319,829,6.48,2.54,-2.319,51054552,30.162,35.036,0.39,20.0953,1193887,NA,-71643000
 AEMD,16097086,NaN,1.584,1045,6.89,1.37,-1.039,11803637,5.033,12.522,0.20,11.9841,136000,NA,-5969840
 AERO,109849600,0.19,2.667,1057,6.09,3.28,0.11,6580685,80.997,0.011000000000000001,0.54,2.1612,21900,900000.00,4693000

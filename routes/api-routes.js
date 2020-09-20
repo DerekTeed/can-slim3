@@ -58,7 +58,9 @@ async function getAllStockData() {
 
         const qtrGrowthYOY = await Fetch("https://eodhistoricaldata.com/api/fundamentals/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&filter=Highlights::QuarterlyRevenueGrowthYOY");
         const qtrGrowthYOYData = await qtrGrowthYOY.json();
-        const debtRatio = (totalDebt / URLEBITDAData).toFixed(2)
+        const qtrEPSGrowthYOY = await Fetch("https://eodhistoricaldata.com/api/fundamentals/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&filter=Highlights::QuarterlyEarningsGrowthYOY");
+        const qtrEPSGrowthYOYData = await qtrEPSGrowthYOY.json();
+       
         const week52High = await Fetch ("https://eodhistoricaldata.com/api/fundamentals/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&filter=Technicals::52WeekHigh")
         const week52High2 = await week52High.json();
         const DilutedEpsTTM = await Fetch("https://eodhistoricaldata.com/api/fundamentals/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&filter=Highlights::DilutedEpsTTM");
@@ -79,9 +81,10 @@ async function getAllStockData() {
         var name = URLNameData
         var price = URLStockPriceData2
         var marketcap = URLMarketCapitalizationData
-        var debt = debtRatio
+        
         
         var growth = qtrGrowthYOYData
+        var eps_growth = qtrEPSGrowthYOYData
         var oneyearhigh = week52High2
         var eps = DilutedEpsTTM2
         var float = SharesFloat2
@@ -93,14 +96,14 @@ async function getAllStockData() {
         var lt_debt = totalDebt
         var ebitda = URLEBITDAData
 
-        var values = [symbol, name, price, marketcap, debt, growth, oneyearhigh, eps, float, insider_own, percent_institutions_own, price_percent_from_1_yr_hi, price_to_revenue, volume, lt_debt, ebitda]
+        var values = [symbol, name, price, marketcap, growth, eps_growth, oneyearhigh, eps, float, insider_own, percent_institutions_own, price_percent_from_1_yr_hi, price_to_revenue, volume, lt_debt, ebitda]
         
         console.log('here is ', values)
         pool.connect((err, db, done) => {
             if (err) {
                 return response.status(400).send(err)
             } else {
-                db.query('insert into stock_list ( symbol ,name, price, marketcap, debt, growth, oneyearhigh, eps, float, insider_own, percent_institutions_own, price_percent_from_1_yr_hi, price_to_revenue, volume, lt_debt, ebitda) values($1,$2,$3,$4,$5,$6,$7, $8, $9, $10, $11, $12, $13, $14, $15, $16)', [...values]
+                db.query('insert into stock_list ( symbol ,name, price, marketcap, growth, eps_growth, eps, oneyearhigh, float, insider_own, percent_institutions_own, price_percent_from_1_yr_hi, price_to_revenue, volume, lt_debt, ebitda) values($1,$2,$3,$4,$5,$6,$7, $8, $9, $10, $11, $12, $13, $14, $15, $16)', [...values]
                     )
 
             }

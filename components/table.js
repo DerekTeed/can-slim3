@@ -16,9 +16,9 @@ const Table = () => {
                     'https://stocklistdb.s3.us-east-2.amazonaws.com/mc_growth_price_insider_inst1.csv'
                 );
                 const results = readString(stockData.data)
-                console.log(results.data[0])
-                    setPlayers(results.data)
-                //console.log(stockData.data);
+                
+                setPlayers(results.data)
+                
                 
             } catch (e) {
                 console.log(e)
@@ -28,17 +28,17 @@ const Table = () => {
         const columns = [
 
         {dataField: [0], text: "Symbol"},
-        {dataField: [1], text: "Market Cap"},
-        {dataField: [2], text: "Debt Ratio"},
+        {dataField: [1], text: "Name"},
+        {dataField: [2], text: "Market Cap"},
         {dataField: [3], text: "Growth"},
-        {dataField: [4], text: "ID"},
+        {dataField: [4], text: "EPS Growth"},
         {dataField: [5], text: "One Year High"},
         {dataField: [6], text: "Price"},
         {dataField: [7], text: "EPS"},
         {dataField: [8], text: "Float"},
         {dataField: [9], text: "Inside Ownership"},
         {dataField: [10], text: "% Insitutional Ownership"},
-        {dataField: [11], text: "% from ONe Year High"},
+        {dataField: [11], text: "% from One Year High"},
         {dataField: [12], text: "Price to Revenue"},
         {dataField: [13], text: "Volume"},
         {dataField: [14], text: "Long Term Debt"},
@@ -50,8 +50,16 @@ const Table = () => {
      }, []);  
 
      return <div className="Table">
+         {/* <div class="control-row">
+            Charts: <select class="NGdata" id="chartdropdownNG">
+              <option value="0">US Natural Gas Production (Million Cubic Feet, Monthly)</option>
+              <option value="1">US Natural Consumption (Million Cubic Feet, Monthly)</option>
+              <option value="2">US Natural Gas Storage (Billion Cubic Feet, Weekly)</option>
+              <option value="3">US Natural Gas Rig Count(Weekly)</option>
+            </select>
+         </div> */}
      <BootstapTable 
-     keyField='name'
+     keyField='[0]'
      data={players}
      columns={columns}
      pagination= {paginationFactory()}

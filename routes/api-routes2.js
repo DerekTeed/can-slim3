@@ -48,22 +48,25 @@ async function getAllStockData() {
         // const URLNameData = await URLName.json();
 
 
-        // const URLStockPrice = await Fetch("https://eodhistoricaldata.com/api/eod/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&fmt=json&filter=last_close");
+        //const URLStockPrice = await Fetch("https://eodhistoricaldata.com/api/eod/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&fmt=json&filter=last_close");
+        
         // const URLStockPriceData = await URLStockPrice.json();
         // const URLStockPriceData2 = URLStockPriceData.toFixed(2)
         
 
         // const URLMarketCapitalization = await Fetch("https://eodhistoricaldata.com/api/fundamentals/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&filter=Highlights::MarketCapitalization");
         // const URLMarketCapitalizationData = await URLMarketCapitalization.json();
-        const URLToQuarterDebt = await Fetch("https://eodhistoricaldata.com/api/fundamentals/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&filter=Highlights::MostRecentQuarter");
-        const mostRecentQuarter = await URLToQuarterDebt.json();
-        const URLToQuarterDebt2 = await Fetch("https://eodhistoricaldata.com/api/fundamentals/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&filter=Financials::Balance_Sheet::quarterly::" + mostRecentQuarter + "::longTermDebt")
-        const totalDebt = await URLToQuarterDebt2.json();
-        const URLEBITDA = await Fetch("https://eodhistoricaldata.com/api/fundamentals/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&filter=Highlights::EBITDA");
-        const URLEBITDAData = await URLEBITDA.json();
+        // const URLToQuarterDebt = await Fetch("https://eodhistoricaldata.com/api/fundamentals/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&filter=Highlights::MostRecentQuarter");
+        // const mostRecentQuarter = await URLToQuarterDebt.json();
+        // const URLToQuarterDebt2 = await Fetch("https://eodhistoricaldata.com/api/fundamentals/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&filter=Financials::Balance_Sheet::quarterly::" + mostRecentQuarter + "::longTermDebt")
+        // const totalDebt = await URLToQuarterDebt2.json();
+        // const URLEBITDA = await Fetch("https://eodhistoricaldata.com/api/fundamentals/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&filter=Highlights::EBITDA");
+        // const URLEBITDAData = await URLEBITDA.json();
 
         // const qtrGrowthYOY = await Fetch("https://eodhistoricaldata.com/api/fundamentals/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&filter=Highlights::QuarterlyRevenueGrowthYOY");
         // const qtrGrowthYOYData = await qtrGrowthYOY.json();
+        const qtrEPSGrowthYOY = await Fetch("https://eodhistoricaldata.com/api/fundamentals/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&filter=Highlights::QuarterlyEarningsGrowthYOY");
+        const qtrEPSGrowthYOYData = await qtrEPSGrowthYOY.json();
         // const debtRatio = (totalDebt / URLEBITDAData).toFixed(2)
         // const week52High = await Fetch ("https://eodhistoricaldata.com/api/fundamentals/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&filter=Technicals::52WeekHigh")
         // const week52High2 = await week52High.json();
@@ -81,13 +84,14 @@ async function getAllStockData() {
         // const volume1 = await Fetch("https://eodhistoricaldata.com/api/eod/" + stocks[i] + ".US?api_token=" + process.env.EOD_KEY + "&fmt=json&filter=last_volume");
         // const volume2 = await volume1.json();
        
-        // var symbol = stocks[i]
+        var symbol = stocks[i]
         // var name = URLNameData
-        // var price = URLStockPriceData2
+        //var price = URLStockPriceData2
         // var marketcap = URLMarketCapitalizationData
-        var lt_debt = totalDebt
-        var ebitda = URLEBITDAData
+        // var lt_debt = totalDebt
+        // var ebitda = URLEBITDAData
         // var growth = qtrGrowthYOYData
+        var eps_growth = qtrEPSGrowthYOYData
         // var oneyearhigh = week52High2
         // var eps = DilutedEpsTTM2
         // var float = SharesFloat2
@@ -97,15 +101,16 @@ async function getAllStockData() {
         // var price_to_revenue = PriceSalesTTM2
         // var volume = volume2
         
-        symbol = stocks[i];
-        var values = [lt_debt, ebitda, symbol]
+        
+        var values = [eps_growth, symbol]
         console.log('here is ', stocks[i])
         pool.connect((err, db, done) => {
             if (err) {
                 return response.status(400).send(err)
             } else {
                 console.log(values)
-                db.query('update stock_list set lt_debt = $1, ebitda = $2 where symbol = $3' , [...values]
+                //db.query('update stock_list set eps_growth = $1 where symbol = $2' , [...values]
+                db.query('update stock_list set eps_growth = $1 where symbol = $2' , [...values]
                   
                 )
 

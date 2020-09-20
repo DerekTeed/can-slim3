@@ -2,9 +2,7 @@ import Fetch from 'isomorphic-unfetch';
 import Layout from '../../components/Layout';
 import Table from '../../components/table.js';
 import React, { useState, useEffect } from "react";
-
-
-
+import Fable from '../../components/Fable.js';
 import Pagination from '../../components/Pagination';
 import stocks from "../../models/stockArray";
 //props in react would be terrible for making a table or listing stock info!!!
@@ -18,7 +16,7 @@ const Index = (props) => (
       
       
     </div>
-    <Table/>
+    <Fable/>
   </Layout>
 );
 
