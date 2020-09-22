@@ -21,7 +21,7 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx", "models/report.js", "components/Layout.tsx", "src/pages/apiDB.js", "src/pages/apiPull.js", "src/pages/index.js", "components/table.js"
+    "**/*.tsx", "models/report.js", "components/Layout.tsx", "src/pages/apiDB.js", "src/pages/apiPull.js", "src/pages/index2.js", "components/table.js"
   ],
   "exclude": [
     "node_modules"

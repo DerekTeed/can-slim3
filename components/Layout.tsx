@@ -4,9 +4,10 @@ import Navbar from './Navbar'
 
 
 const Layout = (props:any, children:any) => (
+    
     <div>
         <Head>
-            <title>BitzPrice</title>
+            <title>Stock Investing Method</title>
             <link rel="stylesheet" href="https://bootswatch.com/4/cerulean/bootstrap.min.css" />
         </Head>
         <Navbar />
