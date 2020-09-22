@@ -11,54 +11,54 @@ export default function Table1(props) {
         <table cellPadding={0} cellSpacing={0} id="stockTable">
             <thead>
                 <tr>
-                    <th><button className="button" onClick={() => props.sortBy('symbol')}>
+                    <th><button onClick={() => props.sortBy('symbol')}>
                         Symbol
                         </button></th>
-                    <th><button className="button" onClick={() => props.sortBy('name')}>
+                    <th><button onClick={() => props.sortBy('name')}>
                         Name
                         </button></th>
                     <th>
-                        <button className="button" onClick={() => props.sortBy('price')}>
+                        <button onClick={() => props.sortBy('price')}>
                             Price
                         </button>
                     </th>
-                    <th><button className="button" onClick={() => props.sortBy('price_to_revenue')}>
+                    <th><button onClick={() => props.sortBy('price_to_revenue')}>
                         Price to Revenue
                         </button></th>
-                    <th><button className="button" onClick={() => props.sortBy('eps')}>
+                    <th><button onClick={() => props.sortBy('eps')}>
                         EPS
                         </button></th>
-                    <th><button className="button" onClick={() => props.sortBy('eps_growth')}>
+                    <th><button onClick={() => props.sortBy('eps_growth')}>
                         EPS Growth
                         </button></th>
-                    <th><button className="button" onClick={() => props.sortBy('growth')}>
+                    <th><button onClick={() => props.sortBy('growth')}>
                         Revenue Growth
                         </button></th>
-                    <th><button className="button" onClick={() => props.sortBy('marketcap')}>
+                    <th><button onClick={() => props.sortBy('marketcap')}>
                         Market Capitalization
                         </button></th>
-                    <th><button className="button" onClick={() => props.sortBy('ebitda')}>
+                    <th><button onClick={() => props.sortBy('ebitda')}>
                         EBITDA
                         </button></th>
-                    <th><button className="button" onClick={() => props.sortBy('lt_debt')}>
+                    <th><button onClick={() => props.sortBy('lt_debt')}>
                         Long Term Debt
                         </button></th>
-                    <th><button className="button" onClick={() => props.sortBy('oneyearhigh')}>
+                    <th><button onClick={() => props.sortBy('oneyearhigh')}>
                         52 Week High
                         </button></th>
-                    <th><button className="button" onClick={() => props.sortBy('price_percent_from_1_yr_hi')}>
+                    <th><button onClick={() => props.sortBy('price_percent_from_1_yr_hi')}>
                         Price Percent from 52 Week High
                         </button></th>
-                    <th><button className="button" onClick={() => props.sortBy('float')}>
+                    <th><button onClick={() => props.sortBy('float')}>
                         Float
                         </button></th>
-                    <th><button className="button" onClick={() => props.sortBy('insider_own')}>
+                    <th><button onClick={() => props.sortBy('insider_own')}>
                         Percent insider Ownership
                         </button></th>
-                    <th><button className="button" onClick={() => props.sortBy('percent_institutional_own')}>
+                    <th><button onClick={() => props.sortBy('percent_institutional_own')}>
                         Percent Institutional Ownership
                         </button></th>
-                    <th><button className="button" onClick={() => props.sortBy('volume')}>
+                    <th><button onClick={() => props.sortBy('volume')}>
                         Volume
                         </button></th>
                 </tr>
