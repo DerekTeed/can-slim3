@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Component } from "react";
 
-import '../css/app.css'
+import '../css/App.css'
 
 export default function Table1(props) {
     function numberWithCommas(x) {
